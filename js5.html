@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		var sname=prompt("Enter the name")
+		var phy=parseInt(prompt("Enter the physics"))
+		var che=parseInt(prompt("Enter the chemistry"))
+		var math=parseInt(prompt("Enter the physics"))
+		var tm=phy +che + math;
+		document.write("<br> The total mark is "+tm);
+		var per=tm/3;
+		document.write("<br> the percentage "+per)
+
+		if(phy>=40 && che>=40 && math>=40)
+		{
+			document.write("<br> student is pass")
+			if(per>=60)
+			{
+				document.write("<br>student first class")
+			}
+		}
+		else
+		{
+			document.write("<br> student is fail")
+		}
+
+
+
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

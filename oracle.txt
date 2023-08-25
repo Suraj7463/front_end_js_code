@@ -1,0 +1,177 @@
+SQL*Plus: Release 11.2.0.2.0 Production on Sat Aug 6 15:43:09 2022
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect scott/orcl123
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+SQL> connect scott/orcl123;
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+SQL> connect scott/tiger
+Connected.
+SQL> create table jio_customer
+  2  (custid number(5) primary key,
+  3  name varchar2(10) not null,
+  4  city varchar2(10) default 'PUNE',
+  5  phone number(10));
+
+Table created.
+
+SQL> insert into jio_customer
+  2  (custid,name,phone)
+  3  values
+  4  (&custid,'&name',&phone);
+Enter value for custid: 101
+Enter value for name: suraj
+Enter value for phone: 8473902383
+old   4: (&custid,'&name',&phone)
+new   4: (101,'suraj',8473902383)
+
+1 row created.
+
+SQL> /
+Enter value for custid: 102
+Enter value for name: ravi
+Enter value for phone: 8493840293
+old   4: (&custid,'&name',&phone)
+new   4: (102,'ravi',8493840293)
+
+1 row created.
+
+SQL> /
+Enter value for custid: 103
+Enter value for name: raviraj
+Enter value for phone: 8493849032
+old   4: (&custid,'&name',&phone)
+new   4: (103,'raviraj',8493849032)
+
+1 row created.
+
+SQL> /
+Enter value for custid: ganesh
+Enter value for name: mahesh
+Enter value for phone: 8473930948
+old   4: (&custid,'&name',&phone)
+new   4: (ganesh,'mahesh',8473930948)
+(ganesh,'mahesh',8473930948)
+ *
+ERROR at line 4:
+ORA-00984: column not allowed here
+
+
+SQL> /
+Enter value for custid: 104
+Enter value for name: ganesh
+Enter value for phone: 8473902338
+old   4: (&custid,'&name',&phone)
+new   4: (104,'ganesh',8473902338)
+
+1 row created.
+
+SQL> select * from jio_customer;
+
+    CUSTID NAME       CITY            PHONE
+---------- ---------- ---------- ----------
+       101 suraj      PUNE       8473902383
+       102 ravi       PUNE       8493840293
+       103 raviraj    PUNE       8493849032
+       104 ganesh     PUNE       8473902338
+
+SQL> create table stud_info_mit
+  2  (rollno number(5) primary key check(rollno>0),
+  3  name varchar2(10) not null,
+  4  city varchar2(10) not null);
+
+Table created.
+
+SQL> create table stud_ainfo_mit
+  2  (rollno number(5) references stud_info_mit(rollno),
+  3  phy number(3) not null check(phy>=0 and phy<=100),
+  4  phy number(3) not null check(phy>=0 and phy<=100),
+  5  dois
+  6
+SQL> create table stud_ainfo_mit
+  2  (rollno number(5) references stud_info_mit(rollno),
+  3  phy number(3) not null check(phy>=0 and phy<=100),
+  4  che number(3) not null check(che>=0 and che<=100),
+  5  math number(3) not null check(math>=0 and math<=100)
+  6  );
+
+Table created.
+
+SQL> insert into stud_info_mit
+  2  values
+  3  (101,'AMOL','PUNE');
+
+1 row created.
+
+SQL> insert into stud_info_mit
+  2  values
+  3  (102,'PIYUSH',PUNE');
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> insert into stud_info_mit
+  2  values
+  3  (102,'PIYUSH','PUNE');
+
+1 row created.
+
+SQL> insert into stud_info_mit
+  2  values
+  3  (103,'PAVAN','PUNE');
+
+1 row created.
+
+SQL> insert into stud_ainfo_mit
+  2  values
+  3  (104,90,70,80);
+insert into stud_ainfo_mit
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (SCOTT.SYS_C007040) violated - parent key not
+found
+
+
+SQL> insert into stud_ainfo_mit
+  2  values
+  3  (103,90,70,80);
+
+1 row created.
+
+SQL> delete from stud_ainfo_mit
+  2  where rollno 103;
+where rollno 103
+             *
+ERROR at line 2:
+ORA-00920: invalid relational operator
+
+
+SQL> delete from stud_ainfo_mit
+  2  where rollno=103;
+
+1 row deleted.
+
+SQL> alter table stud_info_mit
+  2  drop column rollno;
+drop column rollno
+            *
+ERROR at line 2:
+ORA-12992: cannot drop parent key column
+
+
+SQL> delete from stud_ainfo_mit
+  2  alter table stud_info_mit
+  3
+SQL> alter table stud_ainfo_mit
+  2  drop column rollno;
+
+Table altered.
+
+SQL>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		document.write("<table border='2' cellpading='5'>")
+		document.write("<tr>")
+		document.write("<td> rollno <td>")
+		document.write("<td> name <td>")
+		document.write("<td> village <td>")
+		document.write("<td> physics <td>")
+		document.write("<td> chemistry <td>")
+		document.write("<td> mathematics <td>")
+		var ap=0;
+		var p=0;
+		var f=0;
+		 
+
+		do{
+			rn=parseInt(prompt("enter rollno "))
+			name=prompt("enter name ")
+			phy=parseInt(prompt("enter physics marks "))
+			che=parseInt(prompt("enter chemistry marks "))
+			math=parseInt(prompt("enter mathematics matk "))
+			tm=phy+che+math;
+			pr=tm/3;
+			c=c+1;
+			document.write("<br> total student="+c)
+			if(pr>=60)
+			{
+				document.write("<br> student is passed"+pr)
+			}
+			else
+			{
+				document.write("<br> student is fail"+pr)
+			}
+			i=parseInt(prompt("check other students pass or fail give input (1)"))
+
+			
+		}while(i==1)
+
+	
+		
+		
+		
+		
+
+	     
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

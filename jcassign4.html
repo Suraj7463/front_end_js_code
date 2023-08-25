@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		var phy=parseInt(prompt("enter the physics marks"))
+		var che=parseInt(prompt("enter the chemistry mark"))
+		var math=parseInt(prompt("enter the mathematics mark"))
+
+		var tm=phy + che + math;
+		var per= tm/3;
+		document.write("<br> total mark is"+tm);
+		document.write("<br> percentage is " +per)
+
+		if (phy>=40 && che>=40 && math>=40) {
+			document.write("<br> student is pass")
+			document.write("<br> marks in physics: " +phy)
+			document.write("<br> marks in chemistry: " +che )
+			document.write("<br> marks in mathematics: "+math)
+			
+
+		}
+		else
+			{document.write("<br> student is fail")}
+		
+		if (phy<=39 ) {
+			document.write("<br> fail in physics: " +phy)
+		}
+		if (che<=39) {
+			document.write("<br> fail in chemistry: " +che )
+		}
+		if (math<=39) {
+			document.write("<br> fail in mathematics: "+math)
+		}
+		
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

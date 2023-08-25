@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		pname=prompt("enter the product name")
+		rate=parseInt(prompt("enter the product rate"))
+		qty=parseInt(prompt("enter the how many quntite"))
+		document.write("<br> this is product name: "+pname)
+		document.write("<br> how many quntitys are: "+qty)
+		
+		if(rate>=20000)
+		{
+			document.write("<br> product one product price: "+rate)
+			disc=rate*40/100;
+			document.write("<br> discoutn is: "+disc)
+			quntity=qty*rate;
+			document.write("<br> quntity rate is: "+quntity)
+			fbill=quntity-disc*qty;
+			document.write("<br> final bill is: "+fbill)
+		}
+		if(rate>=10000 && rate<20000)
+		{
+			document.write("<br> product one product price: "+rate)
+			disc=rate*20/100;
+			document.write("<br> discount is: "+disc)
+			quntity=qty*rate;
+			document.write("<br> quntite rate is: "+quntity)
+			fbill=quntity-disc*qty;
+			document.write("<br> final bill is: "+fbill)
+		}
+		if(rate>=5000 && rate<=9000)
+		{
+			document.write("<br> product one product price: "+rate)
+			disc=rate*10/100;
+			document.write("<br> discount is: "+disc)
+			quntity=qty*rate;
+			document.write("<br> quntite rate is: "+quntity)
+			fbill=quntity-disc*qty;
+			document.write("<br> final bill is: "+fbill)
+		}
+		
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
